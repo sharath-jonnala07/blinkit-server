@@ -52,7 +52,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="HeyBlinkit Household Recommendation Engine",
-    description="Stanford AI PM Household Mental Model Recommendation Backend for Blinkit 8-Min Hyperlocal Delivery",
+    description="Household Recommendation Backend for Blinkit 8-Min Hyperlocal Delivery",
     version="1.0.0",
     lifespan=lifespan
 )
