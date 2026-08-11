@@ -128,6 +128,13 @@ def get_all_missions():
     res = engine.compute_recommendations(default_profile)
     return res.missions
 
+@app.options("/{full_path:path}")
+def handle_options_preflight(full_path: str):
+    """
+    Catch-all OPTIONS handler to guarantee 200 OK preflight responses for all endpoints.
+    """
+    return {"status": "ok"}
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
