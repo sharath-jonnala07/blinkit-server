@@ -27,10 +27,10 @@ class HouseholdRecommendationEngine:
         # Determine endpoint and model based on API key prefix/env
         if api_key.startswith("xai-"):
             endpoint = "https://api.x.ai/v1/chat/completions"
-            model_name = "grok-2-latest"
+            model_name = os.getenv("GROK_MODEL", "grok-2-latest")
         else:
             endpoint = "https://api.groq.com/openai/v1/chat/completions"
-            model_name = "llama-3.3-70b-versatile"
+            model_name = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 
         prompt_content = (
             f"User Profile details:\n"
